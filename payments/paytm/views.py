@@ -19,12 +19,11 @@ def home(request):
 def payment(request):
     MERCHANT_KEY = settings.PAYTM_MERCHANT_KEY
     MERCHANT_ID = settings.PAYTM_MERCHANT_ID
-    get_lang = "/" + get_language() if get_language() else ''
-    CALLBACK_URL = settings.HOST_URL + get_lang + settings.PAYTM_CALLBACK_URL
+    CALLBACK_URL = settings.HOST_URL + settings.PAYTM_CALLBACK_URL
     # Generating unique temporary ids
     order_id = Checksum.__id_generator__()
 
-    bill_amount = 100
+    bill_amount = '100'
     if bill_amount:
         data_dict = {
                     'MID':MERCHANT_ID,
